@@ -55,13 +55,17 @@ class Board {
 
   
 
-  // placeEnemies() {
-  //   // places enemies on enemy side of board
-  //   const numEnemies = 9;
-  //   this.grid.map((pos) => (
+  placeEnemies() {
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 6; j++) {
+        let pos = [i,j];
+        if (this.isValidPos(pos) && this.isEnemyPos(pos)) {
+          this.grid[i][j] = "E";
 
-  //   ))
-  // }
+        }
+      }
+    }
+  }
 
 }
 
