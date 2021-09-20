@@ -11,7 +11,7 @@ class Player {
   }
 
   playerMove(dir) {
-    let nextPos;
+    let nextPos; 
     switch (dir) {
       case "up":
         nextPos = [this.pos[0] - 1, this.pos[1]];
