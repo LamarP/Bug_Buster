@@ -16,8 +16,8 @@ function Game() {
 
   Game.FPS = 32;
   Game.BG_COLOR = "#000000";
-  Game.DIM_X = 1000;
-  Game.DIM_Y = 600;
+  Game.DIM_X = 550;
+  Game.DIM_Y = 185;
   Game.prototype.add = function add(object) {
     if (object instanceof Enemy) {
       this.enemies.push(object);
