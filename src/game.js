@@ -9,7 +9,8 @@ function Game() {
     this.enemies = [];
     this.bullets = [];
     this.players = [];
-    // this.health = 5;
+    this.PlayerHealth = 5;
+    this.enemyHealth = 5;
     // this.addEnemies();
   }
 
