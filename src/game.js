@@ -35,16 +35,16 @@ function Game() {
   
  
   
-  Game.prototype.addPlayer = function addPlayer() {
-    const player = new Player({
-      pos: this.startPosition(),
-      game: this
-    });
+  // Game.prototype.addPlayer = function addPlayer() {
+  //   const player = new Player({
+  //     pos: this.startPosition(),
+  //     game: this
+  //   });
   
-    this.add(player);
+  //   this.add(player);
   
-    return player;
-  };
+  //   return player;
+  // };
 
 
 
