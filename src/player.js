@@ -6,9 +6,9 @@ const CONSTANTS = {
 class Player {
   constructor(board) {
     this.board = board;
-    this.x = 1;
-    this.y = 1;
-    // this.pos = [1, 1];
+    this.x = 120;
+    this.y = 50;
+    this.pos = [1, 1];
   }
 
   fireWeapon(weapon) {
@@ -19,60 +19,47 @@ class Player {
       ctx.fillStyle = "blue";
       ctx.fillRect(this.x, this.y, CONSTANTS.PLAYER_WIDTH, CONSTANTS.PLAYER_HEIGHT);
     
-  //     var image = document.querySelector("source");
-  //     var canvas = document.querySelector("canvas");
-      
-  //     var ctx = canvas.getContext("2d");
-      
-  //     //3 arg verison
-  //     // ctx.drawImage( image, 0, 0, );
-      
-      
-  //     // return; //remove this line to see other versions
-      
-  //     //5 arg verison
-  //     ctx.drawImage( image, 0, 0, 50, 50 );
-      
-  //     //9 arg verison
-  //     // ctx.drawImage( 
-  //     //    image, 
-  //     //    0, 0, //Where to start the grab (x,y of source image)
-  //     //    100, 100, //How much to grab (width, height)
-  //     //    0, 0, //Where to plop the grab on the canvas (x,y of canvas)
-  //     //    200, 200 //How large to plop the grab (width, height of incoming stamp)
-  //     // );
-      
-      
-      
-   
-   
-   
-  //  //
-  //   setTimeout(() => {
-  //      this.drawPlayer();
-  //   }, 300)
   }
 
   playerMove(dir) {
-    let nextPos; 
+    let nextPos;
+    let nextX;
+    let nextY;
     switch (dir) {
       case "up":
         nextPos = [this.pos[0] - 1, this.pos[1]];
+        nextY = this.y - 50;
         if (this.board.isValidPos(nextPos) && this.board.isPlayerPos(nextPos)) {
           this.pos = nextPos;
+          this.y = nextY;
         }
         return;
       case "down":
         nextPos = [this.pos[0] + 1, this.pos[1]];
-        if (this.board.isValidPos(nextPos) && this.board.isPlayerPos(nextPos)) this.pos = nextPos;
-        return;
+        nextY = this.y + 60;
+        if (this.board.isValidPos(nextPos) && this.board.isPlayerPos(nextPos)) {
+          this.pos = nextPos;
+          this.y = nextY;
+          return;
+
+        }
       case "left":
         nextPos = [this.pos[0], this.pos[1] - 1];
-        if (this.board.isValidPos(nextPos) && this.board.isPlayerPos(nextPos)) this.pos = nextPos;
+        nextX = this.x - 90;
+        if (this.board.isValidPos(nextPos) && this.board.isPlayerPos(nextPos)) {
+          this.pos = nextPos;
+          this.x = nextX;
+
+        }
         return;
       case "right":
         nextPos = [this.pos[0], this.pos[1] + 1];
-        if (this.board.isValidPos(nextPos) && this.board.isPlayerPos(nextPos)) this.pos = nextPos;
+        nextX = this.x + 90;
+        if (this.board.isValidPos(nextPos) && this.board.isPlayerPos(nextPos)) {
+
+        }
+        this.pos = nextPos;
+        this.x = nextX;
         return;
     }
   }
