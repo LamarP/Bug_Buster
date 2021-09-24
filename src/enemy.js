@@ -44,7 +44,7 @@ class Enemy {
       case "up":
         nextPos = [this.pos[0] - 1, this.pos[1]];
         nextY = this.y - 50;
-        if (this.board.isValidPos(nextPos) && this.board.isPlayerPos(nextPos)) {
+        if (this.board.isValidPos(nextPos) && this.board.isEnemyPos(nextPos)) {
           this.pos = nextPos;
           this.y = nextY;
         }
@@ -52,7 +52,7 @@ class Enemy {
       case "down":
         nextPos = [this.pos[0] + 1, this.pos[1]];
         nextY = this.y + 60;
-        if (this.board.isValidPos(nextPos) && this.board.isPlayerPos(nextPos)) {
+        if (this.board.isValidPos(nextPos) && this.board.isEnemyPos(nextPos)) {
           this.pos = nextPos;
           this.y = nextY;
           return;
@@ -61,7 +61,7 @@ class Enemy {
       case "left":
         nextPos = [this.pos[0], this.pos[1] - 1];
         nextX = this.x - 90;
-        if (this.board.isValidPos(nextPos) && this.board.isPlayerPos(nextPos)) {
+        if (this.board.isValidPos(nextPos) && this.board.isEnemyPos(nextPos)) {
           this.pos = nextPos;
           this.x = nextX;
 
@@ -70,7 +70,7 @@ class Enemy {
       case "right":
         nextPos = [this.pos[0], this.pos[1] + 1];
         nextX = this.x + 90;
-        if (this.board.isValidPos(nextPos) && this.board.isPlayerPos(nextPos)) {
+        if (this.board.isValidPos(nextPos) && this.board.isEnemyPos(nextPos)) {
 
         }
         this.pos = nextPos;

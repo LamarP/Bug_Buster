@@ -10,20 +10,50 @@ document.addEventListener("DOMContentLoaded", function () {
   canvasEl.height = Game.DIM_Y;
 
   const ctx = canvasEl.getContext("2d");
-  const game = new Game();
+  const game = new Game(ctx);
   const pImg = document.getElementById('source');
 
-  // pImg.addEventListener('load', e => {
-  //   ctx.drawImage(pImg, 33, 71, 104, 124, 21, 20, 87, 104);
-  // });  
+     
 
   
   window.MovingObject = MovingObject;
   window.ctx = ctx;
-  window.board = Board;
-  window.player = Player;
-  window.enemy = Enemy;
+  window.Board = Board;
+  window.Player = Player;
+  window.Enemy = Enemy;
+  window.game = game;
+  window.Game = Game;
   window.image = pImg;
   console.log("Webpack is working!");
   // new GameView(game, ctx).start();
+});
+
+document.addEventListener("keydown", (e) => {
+  e.preventDefault();
+  // if (start) {
+    const canvasEl = document.getElementsByTagName("canvas")[0];
+    const ctx = canvasEl.getContext("2d");
+    switch (e.key) {
+      case "ArrowUp":
+        game.player.playerMove("up");
+        game.drawGame(ctx);
+        break;
+      case "ArrowDown":
+        game.player.playerMove("down");
+        game.drawGame(ctx);
+        break;
+      case "ArrowLeft":
+        game.player.playerMove("left");
+        game.drawGame(ctx);
+        break;
+      case "ArrowRight":
+        game.player.playerMove("right");
+        game.drawGame(ctx);
+        break;
+      case " ":
+        game.player.playerMove(" ");
+        game.drawGame(ctx);
+        break;
+    // }
+  }
 });

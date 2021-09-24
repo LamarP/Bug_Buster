@@ -1,50 +1,33 @@
 const Board = require("./board");
 const Bullet = require("./bullet");
 const Enemy = require("./enemy");
+const Player = require("./player");
 
-function Game() {
+class Game {
+  constructor(ctx) {
+    this.ctx = ctx;
     this.board = new Board();
     this.score = 0;
     this.speed = "fast as fuck!";
-    this.enemies = [];
-    this.bullets = [];
-    this.players = [];
-    this.PlayerHealth = 5;
-    this.enemyHealth = 5;
-    // this.addEnemies();
+    this.player = new Player(this.board);
+    this.enemy = new Enemy(this.board);
   }
+  
+  drawGame() {
+    this.wipeGame();
+    this.player.drawPlayer(this.ctx);
+    this.enemy.drawEnemy(this.ctx);
+  }
+  wipeGame() {
+    this.ctx.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
+  }
+  
+}
+Game.DIM_X = 550;
+Game.DIM_Y = 185;
 
-  Game.FPS = 32;
-  Game.BG_COLOR = "#000000";
-  Game.DIM_X = 550;
-  Game.DIM_Y = 185;
-  Game.prototype.add = function add(object) {
-    if (object instanceof Enemy) {
-      this.enemies.push(object);
-      //non-updated
-    } else if (object instanceof Attack) {
-      this.bullets.push(object);
-      //non-updated
-    } else if (object instanceof Player) {
-      this.players.push(object);
-      //non-updated
-    } else {
-      throw new Error("unknown type of object");
-    }
-  };
   
- 
   
-  // Game.prototype.addPlayer = function addPlayer() {
-  //   const player = new Player({
-  //     pos: this.startPosition(),
-  //     game: this
-  //   });
-  
-  //   this.add(player);
-  
-  //   return player;
-  // };
 
 
 
@@ -52,5 +35,3 @@ function Game() {
 
 
 module.exports = Game;
-// idea: instead of wack-a-mole have a cpu player 
-//with randomized attacks and movements
