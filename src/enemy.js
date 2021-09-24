@@ -1,14 +1,4 @@
-// const ENEMY_POS = [
-//   [0, 3],
-//   [0, 4],
-//   [0, 5],
-//   [1, 3],
-//   [1, 4],
-//   [1, 5],
-//   [2, 3],
-//   [2, 4],
-//   [2, 5]
-// ]
+
 const CONSTANTS = {
   ENEMY_WIDTH:  30,
   ENEMY_HEIGHT:  40
@@ -20,7 +10,8 @@ class Enemy {
     this.pos = [1, 4];
     this.x = 400;
     this.y = 50;
-    //"this" refers to the owner of the function
+    this.health = 5;
+
   }
 
   randomMoves() {
@@ -29,9 +20,7 @@ class Enemy {
     return moves[Math.floor(Math.random()*moves.length)];
   }
   drawEnemy(ctx) {
-    ctx.fillStyle = "red";
-    ctx.fillRect(this.x, this.y, CONSTANTS.ENEMY_WIDTH, CONSTANTS.ENEMY_HEIGHT);
-  
+    ctx.drawImage(document.getElementById('source2'), this.x - 10, this.y - 45); 
   }
   // fireWeapon(weapon) {
   //   console.log("pew pew");

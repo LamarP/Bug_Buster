@@ -32,7 +32,8 @@ document.addEventListener("keydown", (e) => {
   e.preventDefault();
   // if (start) {
     const canvasEl = document.getElementsByTagName("canvas")[0];
-    const ctx = canvasEl.getContext("2d");
+  const ctx = canvasEl.getContext("2d");
+  // debugger;
     switch (e.key) {
       case "ArrowUp":
         game.player.playerMove("up");
@@ -51,9 +52,11 @@ document.addEventListener("keydown", (e) => {
         game.drawGame(ctx);
         break;
       case " ":
-        game.player.playerMove(" ");
+        // game.player.playerMove(" ");
+        game.fireWeapon();
         game.drawGame(ctx);
         break;
     // }
   }
 });
+
