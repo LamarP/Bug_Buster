@@ -8,12 +8,27 @@ class Game {
     this.ctx = ctx;
     this.board = new Board();
     this.score = 0;
-    this.speed = "fast as fuck!";
+    this.speed = 1000;
     this.player = new Player(this.board);
     this.enemy = new Enemy(this.board);
     this.gameOver = false;
+    this.animateGame();
   }
   
+  animateGame() {
+
+    setInterval(() => {
+
+      let move = this.enemy.randomMoves();
+      let didMove = this.enemy.enemyMove(move);  
+      while (!didMove) {
+        didMove = this.enemy.enemyMove(this.enemy.randomMoves());
+      }
+      this.drawGame();
+      console.log("ah yeah!!!");
+    }, this.speed);
+  }
+
   drawGame() {
     this.wipeGame();
     this.player.drawPlayer(this.ctx);
@@ -27,6 +42,7 @@ class Game {
   fireWeapon() {
     if (this.player.pos[0] === this.enemy.pos[0]) {
       this.enemy.health -= 1;
+      this.score += 10;
    }
   }
 
@@ -37,6 +53,7 @@ class Game {
 }
 Game.DIM_X = 550;
 Game.DIM_Y = 185;
+
 
   
   

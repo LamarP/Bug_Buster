@@ -29,6 +29,7 @@ class Enemy {
     let nextPos;
     let nextX;
     let nextY;
+
     switch (dir) {
       case "up":
         nextPos = [this.pos[0] - 1, this.pos[1]];
@@ -36,17 +37,18 @@ class Enemy {
         if (this.board.isValidPos(nextPos) && this.board.isEnemyPos(nextPos)) {
           this.pos = nextPos;
           this.y = nextY;
+          return true;
         }
-        return;
+        return false;
       case "down":
         nextPos = [this.pos[0] + 1, this.pos[1]];
-        nextY = this.y + 60;
+        nextY = this.y + 50;
         if (this.board.isValidPos(nextPos) && this.board.isEnemyPos(nextPos)) {
           this.pos = nextPos;
           this.y = nextY;
-          return;
-
+          return true;
         }
+        return false;
       case "left":
         nextPos = [this.pos[0], this.pos[1] - 1];
         nextX = this.x - 90;
@@ -54,44 +56,21 @@ class Enemy {
           this.pos = nextPos;
           this.x = nextX;
 
+          return true;
         }
-        return;
+        return false;
       case "right":
         nextPos = [this.pos[0], this.pos[1] + 1];
         nextX = this.x + 90;
         if (this.board.isValidPos(nextPos) && this.board.isEnemyPos(nextPos)) {
 
+          this.pos = nextPos;
+          this.x = nextX;
+          return true;
         }
-        this.pos = nextPos;
-        this.x = nextX;
-        return;
+        return false;
     }
   }
-
-  // enemyMove() {
-  //   let dir = this.randomMoves();
-  //   let nextPos;
-  //   switch (dir) {
-  //     case "up":
-  //       nextPos = [this.pos[0] - 1, this.pos[1]];
-  //       if (this.board.isValidPos(nextPos) && this.board.isEnemyPos(nextPos)) {
-  //         this.pos = nextPos;
-  //       }
-  //       return;
-  //     case "down":
-  //       nextPos = [this.pos[0] + 1, this.pos[1]];
-  //       if (this.board.isValidPos(nextPos) && this.board.isEnemyPos(nextPos)) this.pos = nextPos;
-  //       return;
-  //     case "left":
-  //       nextPos = [this.pos[0], this.pos[1] - 1];
-  //       if (this.board.isValidPos(nextPos) && this.board.isEnemyPos(nextPos)) this.pos = nextPos;
-  //       return;
-  //     case "right":
-  //       nextPos = [this.pos[0], this.pos[1] + 1];
-  //       if (this.board.isValidPos(nextPos) && this.board.isEnemyPos(nextPos)) this.pos = nextPos;
-  //       return;
-  //   }
-  // }
 }
 
 module.exports = Enemy;

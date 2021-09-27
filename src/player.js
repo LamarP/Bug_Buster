@@ -11,10 +11,6 @@ class Player {
     this.pos = [1, 1];
   }
 
-  // fireWeapon(weapon) {
-  //   console.log("pew pew");
-  // }
-
   drawPlayer(ctx) {
       ctx.drawImage(document.getElementById('source'), this.x - 10, this.y - 45); 
   }
