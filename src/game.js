@@ -52,7 +52,7 @@ class Game {
   }
 }
 Game.DIM_X = 550;
-Game.DIM_Y = 185;
+Game.DIM_Y = 250;
 
 
   

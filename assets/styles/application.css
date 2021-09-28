@@ -1,16 +1,26 @@
 .container {
   position: relative;
-  border: 1px solid orange;
-  height: 185;
+  /* border: 1px solid orange; */
+  height: 200;
   width: 550;
-  margin: 50% auto;
+  margin: 20% auto;
+  padding-top: 64px;
 }
 
 #canvas {
   position: absolute;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   top: 0;
   left: 0;
-  width:"420px"; 
-  height:"420px";
+  /* width:"420px"; 
+  height:"420px"; */
+}
+
+.bg {
+  background-size: cover;
+  position: absolute;
+  object-fit: cover;
+  /* display: flex; */
+  height: 100%;
+  width: 100%;
 }

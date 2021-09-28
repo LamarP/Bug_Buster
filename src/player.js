@@ -7,7 +7,7 @@ class Player {
   constructor(board) {
     this.board = board;
     this.x = 120;
-    this.y = 50;
+    this.y = 120;
     this.pos = [1, 1];
   }
 
