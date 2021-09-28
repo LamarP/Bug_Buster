@@ -6,6 +6,17 @@
   margin: 20% auto;
   padding-top: 64px;
 }
+.spacer {
+  width: 100%;
+  height: 50px;
+  border: 1px solid blue;
+}
+
+.scorebox {
+  width: 100%;
+  height: 50px;
+  border: 1px solid blue;
+}
 
 #canvas {
   position: absolute;

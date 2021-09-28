@@ -16,7 +16,7 @@ class Enemy {
 
   randomMoves() {
 
-    const moves = ["up", "down", "left", "right"];
+    const moves = ["up", "down", "left", "right",];//"fire"
     return moves[Math.floor(Math.random()*moves.length)];
   }
   drawEnemy(ctx) {
@@ -69,6 +69,8 @@ class Enemy {
           return true;
         }
         return false;
+      // case "fire":
+      //   this.enemyFire();
     }
   }
 }

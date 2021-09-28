@@ -1,5 +1,4 @@
 const Board = require("./board");
-const Bullet = require("./bullet");
 const Enemy = require("./enemy");
 const Player = require("./player");
 
@@ -30,11 +29,38 @@ class Game {
   }
 
   drawGame() {
-    this.wipeGame();
-    this.player.drawPlayer(this.ctx);
-    this.enemy.drawEnemy(this.ctx);
-  }
+    if (this.gameOver) {
+      this.drawEndScreen();
+    } else {
 
+      this.wipeGame();
+      this.player.drawPlayer(this.ctx);
+      this.enemy.drawEnemy(this.ctx);
+      this.drawScore(this.ctx);
+      this.drawHealth(this.ctx);
+      this.drawEnemyHealth(this.ctx);
+    }
+
+  }
+  drawScore(ctx) {
+    ctx.font = "46px Brush Script MT";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: "+this.score, 8, 30);
+
+  }
+  drawHealth(ctx) {
+    ctx.font = "46px Brush Script MT";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Health: "+this.player.health, 8, 300);
+  }
+  drawEnemyHealth(ctx) {
+    ctx.font = "46px Brush Script MT";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Enemy: "+this.enemy.health, 350, 300);
+  }
+  drawEndScreen(ctx) {
+    
+  }
   wipeGame() {
     this.ctx.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
   }
@@ -45,14 +71,20 @@ class Game {
       this.score += 10;
    }
   }
+  enemyFire() {
+    if (this.player.pos[0] === this.enemy.pos[0]) {
+      this.player.health -= 1;
+   }
+  }
 
 
   gameIsOver() {
     this.gameOver = true;
   }
+  
 }
 Game.DIM_X = 550;
-Game.DIM_Y = 250;
+Game.DIM_Y = 550;
 
 
   

@@ -9,11 +9,13 @@ class Player {
     this.x = 120;
     this.y = 120;
     this.pos = [1, 1];
+    this.health = 5;
   }
 
   drawPlayer(ctx) {
       ctx.drawImage(document.getElementById('source'), this.x - 10, this.y - 45); 
   }
+
 
   playerMove(dir) {
     let nextPos;
