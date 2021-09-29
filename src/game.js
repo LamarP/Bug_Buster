@@ -14,8 +14,11 @@ class Game {
     this.gameOver = false;
     this.drawInstructions(this.ctx);
     // this.animateGame();
+    // document.getElementById("whatever").addEventListener(this.resetGame.bind(this));
   }
-  
+  // resetGame(ctx) {
+
+  // }
   animateGame() {
 
     setInterval(() => {
@@ -26,15 +29,20 @@ class Game {
         didMove = this.enemy.enemyMove(this.enemy.randomMoves());
       }
       this.drawGame();
-      console.log("ah yeah!!!");
+      this.enemyFire();
     }, this.speed);
   }
 
+  drawEndScreen(ctx) {
+    this.wipeGame();
+    this.gameOver = true;
+    ctx.font = "46px Brush Script MT";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Gunslinger...you have reached the clearing", 10, 50);
+    ctx.fillText("at the end of the path ", 10, 60);
+  }
   drawGame() {
-    if (this.gameOver) {
-      this.drawEndScreen();
-    } else {
-
+    if (this.player.health !== 0 && !this.gameOver) {
       this.wipeGame();
       this.player.drawPlayer(this.ctx);
       this.enemy.drawEnemy(this.ctx);
@@ -43,6 +51,10 @@ class Game {
       this.drawEnemyHealth(this.ctx);
       this.drawInstructions(this.ctx);
       this.drawBodyCount(this.ctx);
+    } else {
+      this.drawEndScreen(this.ctx);
+
+
     }
 
   }
@@ -69,11 +81,6 @@ class Game {
     ctx.font = "46px Brush Script MT";
     ctx.fillStyle = "#0095DD";
     ctx.fillText("Defeated: "+this.enemies, 350, 350);
-  }
-  drawEndScreen(ctx) {
-    ctx.font = "46px Brush Script MT";
-    ctx.fillStyle = "#0095DD";
-    ctx.fillText("Gunslinger...you have reached the clearing at the end of the path ", 350, 300);
   }
   wipeGame() {
     this.ctx.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
@@ -108,6 +115,7 @@ class Game {
   }
   
 }
+//
 Game.DIM_X = 1550;
 Game.DIM_Y = 550;
 
