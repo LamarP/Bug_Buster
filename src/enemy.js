@@ -20,7 +20,13 @@ class Enemy {
     return moves[Math.floor(Math.random()*moves.length)];
   }
   drawEnemy(ctx) {
-    ctx.drawImage(document.getElementById('source2'), this.x - 10, this.y - 45); 
+    if (this.health === 0) {
+      ctx.drawImage(document.getElementById('source3'), this.x - 10, this.y - 45);
+      this.health = 5;
+    } else {
+      ctx.drawImage(document.getElementById('source2'), this.x - 10, this.y - 45); 
+
+    }
   }
   // fireWeapon(weapon) {
   //   console.log("pew pew");

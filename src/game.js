@@ -11,7 +11,8 @@ class Game {
     this.player = new Player(this.board);
     this.enemy = new Enemy(this.board);
     this.gameOver = false;
-    this.animateGame();
+    this.drawInstructions(this.ctx);
+    // this.animateGame();
   }
   
   animateGame() {
@@ -39,6 +40,7 @@ class Game {
       this.drawScore(this.ctx);
       this.drawHealth(this.ctx);
       this.drawEnemyHealth(this.ctx);
+      this.drawInstructions(this.ctx);
     }
 
   }
@@ -47,6 +49,9 @@ class Game {
     ctx.fillStyle = "#0095DD";
     ctx.fillText("Score: "+this.score, 8, 30);
 
+  }
+  drawInstructions(ctx) {
+    ctx.drawImage(document.getElementById('instructions'), 560, 16); 
   }
   drawHealth(ctx) {
     ctx.font = "46px Brush Script MT";
@@ -59,7 +64,9 @@ class Game {
     ctx.fillText("Enemy: "+this.enemy.health, 350, 300);
   }
   drawEndScreen(ctx) {
-    
+    ctx.font = "46px Brush Script MT";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Gunslinger...you have reached the clearing at the end of the path ", 350, 300);
   }
   wipeGame() {
     this.ctx.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
@@ -69,21 +76,31 @@ class Game {
     if (this.player.pos[0] === this.enemy.pos[0]) {
       this.enemy.health -= 1;
       this.score += 10;
-   }
+      this.isDefeated();
+    }  
+  
   }
+
   enemyFire() {
     if (this.player.pos[0] === this.enemy.pos[0]) {
       this.player.health -= 1;
    }
   }
-
+  isDefeated() {
+    if (this.enemy.health === 0) {
+      this.speed -= 1000;
+      this.score += 150;
+    } else if (this.player.health === 0) {
+      this.gameIsOver();
+    }
+  }
 
   gameIsOver() {
     this.gameOver = true;
   }
   
 }
-Game.DIM_X = 550;
+Game.DIM_X = 1550;
 Game.DIM_Y = 550;
 
 

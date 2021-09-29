@@ -57,6 +57,9 @@ document.addEventListener("keydown", (e) => {
         game.fireWeapon();
         game.drawGame(ctx);
         break;
+      case "Enter":
+        game.animateGame();
+        break;
     // }
   }
 });
