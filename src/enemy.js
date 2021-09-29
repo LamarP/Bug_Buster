@@ -11,7 +11,6 @@ class Enemy {
     this.x = 400;
     this.y = 120;
     this.health = 5;
-
   }
 
   randomMoves() {

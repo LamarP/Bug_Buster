@@ -10,6 +10,7 @@ class Game {
     this.speed = 1000;
     this.player = new Player(this.board);
     this.enemy = new Enemy(this.board);
+    this.enemies = 0;
     this.gameOver = false;
     this.drawInstructions(this.ctx);
     // this.animateGame();
@@ -41,6 +42,7 @@ class Game {
       this.drawHealth(this.ctx);
       this.drawEnemyHealth(this.ctx);
       this.drawInstructions(this.ctx);
+      this.drawBodyCount(this.ctx);
     }
 
   }
@@ -62,6 +64,11 @@ class Game {
     ctx.font = "46px Brush Script MT";
     ctx.fillStyle = "#0095DD";
     ctx.fillText("Enemy: "+this.enemy.health, 350, 300);
+  }
+  drawBodyCount(ctx) {
+    ctx.font = "46px Brush Script MT";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Defeated: "+this.enemies, 350, 350);
   }
   drawEndScreen(ctx) {
     ctx.font = "46px Brush Script MT";
@@ -90,6 +97,7 @@ class Game {
     if (this.enemy.health === 0) {
       this.speed -= 1000;
       this.score += 150;
+      this.enemies += 1;
     } else if (this.player.health === 0) {
       this.gameIsOver();
     }
