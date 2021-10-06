@@ -3,7 +3,6 @@ const Board = require("./board");
 const Player = require("./player");
 const Enemy = require("./enemy");
 // const GameView = require("./game_view");
-const MovingObject = require("./moving_object.js");
 document.addEventListener("DOMContentLoaded", function () {
   const canvasEl = document.getElementsByTagName("canvas")[0];
   
