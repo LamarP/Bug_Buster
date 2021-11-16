@@ -13,12 +13,9 @@ class Game {
     this.enemies = 0;
     this.gameOver = false;
     this.drawInstructions(this.ctx);
-    // this.animateGame();
-    // document.getElementById("whatever").addEventListener(this.resetGame.bind(this));
-  }
-  // resetGame(ctx) {
 
-  // }
+  }
+
   animateGame() {
 
     setInterval(() => {
@@ -38,8 +35,8 @@ class Game {
     this.gameOver = true;
     ctx.font = "46px Brush Script MT";
     ctx.fillStyle = "#0095DD";
-    ctx.fillText("Gunslinger...you have reached the clearing", 10, 50);
-    ctx.fillText("at the end of the path ", 10, 60);
+    ctx.fillText("Gunslinger...you have reached the clearing", 10, 290);
+    ctx.fillText("at the end of the path ", 10, 330);
   }
   drawGame() {
     if (this.player.health !== 0 && !this.gameOver) {

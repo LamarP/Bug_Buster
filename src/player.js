@@ -9,7 +9,7 @@ class Player {
     this.x = 120;
     this.y = 120;
     this.pos = [1, 1];
-    this.health = 5;
+    this.health = 10;
   }
 
   drawPlayer(ctx) {

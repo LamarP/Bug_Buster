@@ -1,32 +1,38 @@
 <html>
-  <img class="bg" src="./assets/images/bg-pic.jpeg" alt=""/>
+  <!-- <img class="bg" src="./assets/images/bg-pic.jpeg" alt=""/> -->
   <head>
     <title>Not So MegaMan</title>
     <link rel="stylesheet" href="./assets/styles/application.css">
     <script type="application/javascript" src="./dist/main.js"></script>
   </head>
   <body>
-    <div class="spacer"></div>
-    <div class="scorebox"></div>
-    
-    <div class="container">
-      <img src="./assets/images/MMBN_NetBattle_Grid_adobespark.png" alt="">
-      <canvas id="canvas"></canvas>
-      <img id="instructions" src="./assets/images/wanted.jpeg" alt="" style="display:none">
+    <section id="welcome-page" class="hidden">
+      <img id="instructions" src="./assets/images/wanted.jpeg" alt="" >
+    </section>
+    <section id="game-page" class="hidden">
+      <div class="spacer"></div>
+      <div class="scorebox"></div>
+      
+      <div class="container">
+        <img src="./assets/images/MMBN_NetBattle_Grid_adobespark.png" alt="">
+        <canvas id="canvas"></canvas>
+  
+      </div>
+      <div>
+        <img id="source"
+             src="./assets/images/player.png" alt="" style="display:none">
+      </div>
+      <div>
+        <img id="source2"
+             src="./assets/images/enemy.png" alt="" style="display:none">
+      </div>
+      <div class="explosion">
+        <img id="source3"
+             src="./assets/images/explosion.jpeg" alt="" style="display:none">
+      </div>
 
-    </div>
-    <div>
-      <img id="source"
-           src="./assets/images/player.png" alt="" style="display:none">
-    </div>
-    <div>
-      <img id="source2"
-           src="./assets/images/enemy.png" alt="" style="display:none">
-    </div>
-    <div class="explosion">
-      <img id="source3"
-           src="./assets/images/explosion.jpeg" alt="" style="display:none">
-    </div>
+    </section>
+    <section id="end-game" class="hidden"></section>
   </body>
 </html>
 
