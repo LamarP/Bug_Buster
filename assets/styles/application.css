@@ -1,11 +1,11 @@
 .container {
   position: relative;
-  /* border: 1px solid orange; */
   height: 200;
   width: 550;
   margin: 20% auto;
   padding-top: 64px;
 }
+
 .spacer {
   width: 100%;
   height: 50px;
@@ -20,7 +20,6 @@
 
 #canvas {
   position: absolute;
-  /* border: 1px solid green; */
   top: 0;
   left: 0;
   /* width:"420px"; 
@@ -46,7 +45,7 @@
 }
 
 body {
-  background-image: url("../images/bg-pic.jpeg");
+  /* background-image: url("../images/bg-pic.jpeg"); */
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -58,3 +57,36 @@ top: 50%;
 transform: translate(-50%, -50%);
 padding: 10px;
 }
+
+#game-system {
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+padding: 10px;
+}
+#btn {
+  position: absolute;
+  left: 36.5%;
+  top: 54%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  width: 48px;
+  height: 28px;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  border: none;
+  /* box-shadow: 0 9px #999; */
+}
+
+#btn:hover {
+  opacity: 50%;
+  background-color: #565756
+}
+/* #btn:active {
+  background-color: #505250;
+  box-shadow: 0 9px rgb(90, 90, 90);
+  transform: translateY(8px);
+} */
